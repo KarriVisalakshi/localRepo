@@ -149,11 +149,28 @@ select sysdate+30 from dual;
 select sysdate-30 from dual;
 
 select add-months(sysdate, -3) from dual;
+                                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 select months_between(sysdate, '1/08/2025') from dual;
 select last_day(sysdate) from dual;
 
-select next_day(sysdate, 4) from dual;   ......(or)......
+dual;   ....select next_day(sysdate, 4) from ..(or)......
 select next_day(sysdate, 'friday') from dual;
 
 
