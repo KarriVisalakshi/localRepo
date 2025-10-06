@@ -1,0 +1,166 @@
+06/09/25
+.
+.
+.
+
+CREATE TABLE SAMPLE(
+    ID NUMBER(3) PRIMARY KEY,
+    SNAME VARCHAR2(20) NOT NULL,
+    ADDRESS VARCHAR2(50),
+    PH NUMBER(10) CHECK (LENGTH(PH)=10)
+);
+desc sample
+
+
+CREATE TABLE NEWSAMPLE(
+    ID NUMBER(3),
+    SNAME VARCHAR2(20) NOT NULL,
+    ADDRESS VARCHAR2(50),
+    PH NUMBER(10), 
+    CONSTRAINTS PK_ID PRIMARY KEY(ID),
+    CONSTRAINTS CK_PH CHECK (LENGTH(PH)=10)
+);
+
+desc NEWSAMPLE
+
+CREATE TABLE DUMMY AS SELECT * FROM NEWSAMPLE;
+
+DESC DUMMY
+
+alter table newsample add city varchar2(25);
+
+alter table newsample modify city varchar2(25) not null;
+
+rename newsample to emp;
+
+desc emp
+
+alter table emp rename column ph to mobile
+
+drop table dummy
+
+insert into emp values(101,'AAA','123, derft', 1234567890, 'banglore')
+
+insert into emp values(102,'VAAA','123, derft', 1234557890, 'hyd')
+insert into emp values(103,'AAwA','1423, dserft', 1235567890, 'vizag')
+
+select * from emp;
+update emp set address = '456, Indian Ocean'
+update emp set address = '46, arabian Ocean' where id=102
+
+delete emp where id=104
+
+select * from emp;
+
+select id, sname from emp;
+select sname, city from emp;
+select sname as "Student Name", city as "City" from emp;
+
+select sname as "Student Name", city as "City"
+from emp
+where id in (102,103)
+
+
+select sname as "Student Name", city as "City"
+from emp
+where sname in ('sneha','siri')
+
+select sname as "Student Name", city as "City"
+from emp
+where id between 101 and 103
+
+select sname as "Student Name", city as "City"
+from emp
+where sname between 'Sneha' and 'vishu'
+
+select sname as "Student Name", city as "City"
+from emp
+where sname like 'S%'
+
+select sname as "Student Name", city as "City"
+from emp
+where address is not null
+
+select sname as "Student Name", city as "City"
+from emp
+where address is null
+.
+.
+.
+
+08/09/25
+.
+.
+.
+order by
+
+
+select * from emp
+
+select id as "emp id", sname as "Name", city as "City"
+from emp
+order by city, id
+
+select count(*) as "no of employees" from emp where city='banglore';-----(count) used for varchar and numeric 
+select sum(mobile) as "mo" from emp where city='banglore'; 
+select avg(mobile) as "mo" from emp where city='banglore';
+select min(mobile) as "mo" from emp;
+select max(mobile) as "mo" from emp;
+
+select count(distinct(city)) from emp; ----(distinct)used for identifying duplicate values.
+
+select floor (39.999) from dual;
+select ceil (39.999) from dual;
+select round (39.399) from dual;
+select trunc (39.399,1) from dual;
+select power (39,2) from dual;
+select sqrt (16) from dual;
+
+select sqrt(mobile) from emp;
+
+select lower(sname) from emp;
+select upper(address) from emp;
+select concat(sname, city) from emp;
+
+select sname || ' ' || city from emp;    ......(or)......
+select concat(sname, concat(' ','city')) from emp;
+
+select instr('hello', '1') from dual;
+select substr('hello there', 2, 6) from dual;
+select length('hello') from dual;
+
+select length(mobile) from emp;
+select substr(mobile, 2, 6) from emp;
+
+select ltrim('     hello') from dual;
+select rtrim('hello         ') from dual;
+select trim('     hello     ') from dual;
+
+select lpad(10000, 12,'*') from dual;
+select rpad(10000, 12,'*') from dual;
+select replace('hello', 'o','0') from dual;
+select replace('hello', 'l','*') from dual;
+
+select sysdate from dual;
+select current_date from dual;
+select sysdate+30 from dual;
+select sysdate-30 from dual;
+
+select add-months(sysdate, -3) from dual;
+
+select months_between(sysdate, '1/08/2025') from dual;
+select last_day(sysdate) from dual;
+
+select next_day(sysdate, 4) from dual;   ......(or)......
+select next_day(sysdate, 'friday') from dual;
+
+
+
+
+
+
+
+
+
+
+

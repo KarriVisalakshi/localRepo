@@ -1,0 +1,3 @@
+id, file_name, file_data
+1000, Anbu, this is clob input file
+1001, Bala, this is not clob input file
